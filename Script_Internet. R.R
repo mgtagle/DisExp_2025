@@ -4,7 +4,10 @@
 
 internet <- read.csv("Internet.csv",  header = T)
 internet$Tiempo <- as.factor(internet$Tiempo)
-boxplot(internet$Velocidad ~ internet$Tiempo)
+boxplot(internet$Velocidad ~ internet$Tiempo,
+        xlab = "Tiempo",
+        ylab = "Velocidad",
+        col= "Golden")
 tapply(internet$Velocidad, internet$Tiempo, mean)
 tapply(internet$Velocidad, internet$Tiempo, var)
 
@@ -15,3 +18,4 @@ shapiro.test(internet$Vel.sqrt)
 
 in.aov <- aov(internet$Vel.sqrt ~ internet$Tiempo)
 summary(in.aov)
+
